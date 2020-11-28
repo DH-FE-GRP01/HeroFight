@@ -979,6 +979,7 @@ textarea.form-control {	height:135px; }
 
 .card-flip div {
 	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 	transform-style: preserve-3d;
 }
 
@@ -989,8 +990,10 @@ textarea.form-control {	height:135px; }
 .card-back {
 	grid-area: frontAndBack;
 	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
 }
 
 .card-container:hover .card-flip {
 	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 }
