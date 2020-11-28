@@ -381,7 +381,7 @@ body {
 }
 .location i { color:#19beb6; }
 .location span {
-	font-size: 15px;
+	font-size: 35px;
 	font-weight: bold;
 	margin-left: 10px;
 }
@@ -950,12 +950,47 @@ textarea.form-control {	height:135px; }
 	.contact-content-upper { padding: 20px;	}
 }
 
-@media (max-width: 370px) {
-	
+@media (max-width: 370px) {	
 	.block-width-half {	width: 48%;	}
 
 	.main-menu-link-icon {	font-size: 3em;	}
 
 	.gallery_title h3 { font-size: 40px; }
 	.gallery_title h4 { font-size: 18px; }
+}
+
+.card-container {
+	perspective: 700px;
+	display: grid;
+}
+
+.card-flip, .card-container {
+	transition: all 0.7s ease;
+	transform-style: preserve-3d;
+}
+
+.card-flip {
+	display: grid;
+	grid-template: 1fr / 1fr;
+	grid-template-areas: "frontAndBack";
+	transition: all 0.7s ease;
+	transform-style: preserve-3d;
+}
+
+.card-flip div {
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+}
+
+.card-front {
+	grid-area: frontAndBack;
+}
+
+.card-back {
+	grid-area: frontAndBack;
+	transform: rotateY(-180deg);
+}
+
+.card-container:hover .card-flip {
+	transform: rotateY(180deg);
 }
