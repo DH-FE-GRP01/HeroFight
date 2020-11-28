@@ -997,3 +997,11 @@ textarea.form-control {	height:135px; }
 	transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
 }
+
+#contact-error{
+	background-color: #f0c1b99d;
+	color: #5c190d;
+	font-size: 0.8em;
+	margin-bottom: 6%;
+	padding: 3%;
+}
