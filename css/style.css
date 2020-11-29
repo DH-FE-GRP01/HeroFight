@@ -397,9 +397,30 @@ body {
 .user-icons a:last-child {	margin-right: 0; }
 .user-icons i:hover { color:#999; }
 
-.paris-title {	border-left: 2px solid #df9801; }
-.paris-title h3 { color: #df9801; }
+.paris-title {
+	padding: 0 0 0 5px;
+	border-left: 2px solid #df9801;
+	margin: 25px 0px;
+}
+.paris-title h3 {
+	color: #df9801;
+	font-size: 18px;
+	margin: 5px;
+}
+.paris-title h4 {
+	font-size: 14px;
+	margin: 5px;
+}
+.location2-main {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 .location2 i { color:#df9801; }
+.location2 span {
+	font-size: 35px;
+	font-weight: bold;
+	margin-left: 10px;
+}
 
 .bottom-main { border-top:7px solid #75bd29; }
 .bottom-title {
