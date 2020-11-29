@@ -1026,3 +1026,7 @@ textarea.form-control {	height:135px; }
 	margin-bottom: 6%;
 	padding: 3%;
 }
+
+.img-max-height {
+	max-height: 553px;
+}
