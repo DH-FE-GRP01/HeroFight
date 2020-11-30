@@ -33,8 +33,9 @@ body {
 .main-body {
 	float: left;
 	width: 100%;
-	background: url(../images/page-bg.jpg); /*imagem de fundo*/
-	background-size: contain;
+	background: url(../images/bg-explosion.jpg); /*imagem de fundo*/
+	background-size: 100%;
+	background-repeat: repeat;
 	background-attachment: fixed;
 }
 
