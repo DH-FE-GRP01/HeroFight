@@ -143,11 +143,12 @@ body {
 .main-menu-link:focus {	color: #fff; }
 
 .home {
-	background-color: rgba(16, 165, 205, 0.8);
-	background-image: url(../images/menu-bg-home.png);
+	background-color: rgba(121, 57, 136, 0.8);
+	background-image: url(../images/superhero-fight.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
+
 
 .about-main { padding-left: 0; }
 .about { background-color: rgba(193,61,18,0.8);	}
@@ -181,10 +182,19 @@ body {
 	margin-bottom: 10px;
 }
 .gallery {
-	background-image: url(../images/menu-bg-gallery.png);
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	
 }
+
+.bg-team{
+	background-image: url(../images/equipe.jpg);
+	background size:cover;
+	background-repeat: no-repeat;
+	opacity:0.8;
+	background-size: 100% 100%;
+
+}
+
+
 .banner-main-home {
 	background-color: white;
 	background-image: url(../images/banner-bg-home.jpg);
