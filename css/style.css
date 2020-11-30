@@ -187,7 +187,7 @@ body {
 
 .bg-team{
 	background-image: url(../images/equipe.jpg);
-	background size:cover;
+	background size:contain;
 	background-repeat: no-repeat;
 	opacity:0.8;
 	background-size: 100% 100%;
