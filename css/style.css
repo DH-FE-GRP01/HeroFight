@@ -218,12 +218,12 @@ body {
 .banner-main-about {
 	float: left;
     width: 100%;
-    background-image: url(../images/banner-bg-about.jpg);
+    /* background-image: url(../images/banner-bg-about.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     border-top: 7px solid #a92446;
     min-height: 320px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.85);
     background-position: bottom right;
 }
 .banner-main-about img {
@@ -252,9 +252,9 @@ body {
 .banner-main-about-text {
 	position: relative;
 	float: left;
-	width: 55%;
+	width: 100%;
 	color: #000;
-	text-align: left;
+	text-align: justify;
 	right: 0;
 	top: 0px; 
 	left: 0;
