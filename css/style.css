@@ -794,18 +794,16 @@ textarea.form-control {	height:135px; }
 	max-height: 300px;
 	object-fit: fill;
 }
-.box span {
+.img-gallery span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* margin-top: 5px; */
 	padding: 10px;
 	font-size: 18px;
 	text-transform: uppercase;
 	font-weight: bold;
 	background-color: rgba(0, 0, 0, 0.85);
 	color: white;
-	/* border-top: 1px solid #000; */
 }
 
 .about_box_line { max-width: 410px; }
