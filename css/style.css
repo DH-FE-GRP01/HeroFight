@@ -33,8 +33,9 @@ body {
 .main-body {
 	float: left;
 	width: 100%;
-	background: url(../images/page-bg.jpg); /*imagem de fundo*/
-	background-size: contain;
+	background: url(../images/bg-explosion.jpg); /*imagem de fundo*/
+	background-size: 100%;
+	background-repeat: repeat;
 	background-attachment: fixed;
 }
 
@@ -183,8 +184,8 @@ body {
 }
 
 .bg-team{
-	background-image: url('../images/equipe.jpg');
-	background-size: cover;
+	background-image: url(../images/equipe.jpg);
+	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 0.8;
 	background-size: 100% 100%;
