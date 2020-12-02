@@ -1312,8 +1312,8 @@ textarea.form-control {
 }
 
 .card-container:hover .card-flip {
-	/* transform: rotateY(180deg);
-	-webkit-transform: rotateY(180deg); */
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 }
 
 #contact-error {
@@ -1324,9 +1324,9 @@ textarea.form-control {
 	padding: 3%;
 }
 
-/* .img-max-height {
-	max-height: 553px;
-} */
+.img-max-height {
+	max-height: 553px !important;
+}
 
 .input-hero {
 	display: block;
@@ -1370,9 +1370,9 @@ textarea.form-control {
 	height: 100%;
 }
 
-.col-lg-6 {
+/* .col-lg-6 {
 	width: 100%;
-}
+} */
 
 #cards-choose-hero {
 	display: flex;
