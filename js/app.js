@@ -8,7 +8,6 @@ let errorList =document.querySelector("#contact-error ul");
 let error = document.getElementById("contact-error")
 
 formulario.addEventListener("submit", function(evento){
-    evento.preventDefault();
 
     errorList.innerHTML="";
     if(nome.value===''){
@@ -28,10 +27,13 @@ formulario.addEventListener("submit", function(evento){
         errorList.innerHTML += "<li> O campo <b>mensagem</b> precisa ser preenchido </li>";
 
     }
-    if (errorList.querySelectorAll("li").length > 0){
+
+    if(errorList.querySelectorAll("li").length>0){
+        evento.preventDefault();
         error.hidden="";
     }
+
+    if(errorList.querySelectorAll("li").length===0){
+        alert("Olá, "+nome.value+ "! Sua mensagem foi enviada com sucesso. Em breve retornaremos seu contato!")
+    }
 })
-
-
-    
