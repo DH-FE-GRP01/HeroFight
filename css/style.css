@@ -229,11 +229,24 @@ body {
 }
 
 .bg-team {
-	background-image: url(../images/equipe.jpg);
+	/* background-image: url(../images/equipe.jpg);
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 0.8;
-	background-size: 100% 100%;
+	background-size: 100% 100%; */
+
+
+	background-color: rgba(42, 115, 128, 0.8);
+	background-image: url(../images/menu-galeria.png);
+	background-repeat: no-repeat;
+	display: block;
+	background-size: 85% 85%;
+	background-position-x:center;
+	background-position-y:20%;
+	
+	
+	
+	
 }
 
 .banner-main-home {
@@ -1160,6 +1173,11 @@ textarea.form-control {
 		margin-right: 0;
 		margin-bottom: 30px;
 	}
+	.bg-team {
+		
+		background-image: url(../images/menu-galeriamenor.png);
+		background-size: 75% 75%;
+		
 }
 
 @media (max-width: 800px) {
