@@ -23,12 +23,13 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/afce1a81-36df-46db-a79e-7ddcfe2b25a9/deploy-status)](https://app.netlify.com/sites/hero-fight/deploys)
+
 <p align="center">
   <h3 align="center">Hero Fight</h3>
 
   <p align="center">
-    Digital House Frontend course by Estação Hack from Facebook final project. The objective was to create a responsive site with at least 4 pages consuming data 
-    from an API and using HTML, CSS and Javascript.
+    Choose more then 700 heroes and put them to fight!
     <br />
     <a href="https://github.com/DH-FE-GRP01/HeroFight"><strong>Explore the docs »</strong></a>
     <br />
@@ -65,7 +66,8 @@
 
 [![Hero Fight Screen Shot][product-screenshot]](https://hero-fight.netlify.app/)
 
-Simple HTML, CSS and Javascript site built trying to copy the NETFLIX sign in page without loooking at the code (at least not too much).
+Digital House Frontend course by Estação Hack from Facebook final project. The objective was to create a responsive site with at least 4 pages consuming data 
+from an API and using HTML, CSS and Javascript.
 
 ### Built With
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
@@ -156,5 +158,5 @@ Project Link: [https://github.com/DH-FE-GRP01/HeroFight](https://github.com/DH-F
 [issues-shield]: https://img.shields.io/github/issues/DH-FE-GRP01/HeroFight.svg?style=flat-square
 [issues-url]: https://github.com/DH-FE-GRP01/HeroFight/issues
 [license-shield]: https://img.shields.io/github/license/DH-FE-GRP01/HeroFight.svg?style=flat-square
-[license-url]: https://github.com/DH-FE-GRP01/HeroFight/blob/master/LICENSE.txt
+[license-url]: https://github.com/DH-FE-GRP01/HeroFight/blob/main/LICENSE.txt
 [product-screenshot]: /images/screenshot.png
