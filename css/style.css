@@ -1062,6 +1062,10 @@ textarea.form-control {
 	.banner-main-about img {
 		padding-top: 100px;
 	}
+
+	.card-container {
+		min-height: 744px;
+	}
 }
 
 @media screen and (max-width: 719px) {
@@ -1082,11 +1086,19 @@ textarea.form-control {
 		width: 33%;
 		box-shadow: none;
 	}
+
+	.card-container {
+		min-height: 744px;
+	}
 }
 
 @media (min-width: 1230px) {
 	.container {
 		width: 1200px;
+	}
+
+	.card-container {
+		min-height: 744px;
 	}
 }
 
