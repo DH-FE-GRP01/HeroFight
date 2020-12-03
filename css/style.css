@@ -1173,11 +1173,11 @@ textarea.form-control {
 		margin-right: 0;
 		margin-bottom: 30px;
 	}
+
 	.bg-team {
-		
 		background-image: url(../images/menu-galeriamenor.png);
 		background-size: 75% 75%;
-		
+	}
 }
 
 @media (max-width: 800px) {
