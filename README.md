@@ -23,6 +23,8 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/afce1a81-36df-46db-a79e-7ddcfe2b25a9/deploy-status)](https://app.netlify.com/sites/hero-fight/deploys)
+
 <p align="center">
   <h3 align="center">Hero Fight</h3>
 
@@ -156,5 +158,5 @@ Project Link: [https://github.com/DH-FE-GRP01/HeroFight](https://github.com/DH-F
 [issues-shield]: https://img.shields.io/github/issues/DH-FE-GRP01/HeroFight.svg?style=flat-square
 [issues-url]: https://github.com/DH-FE-GRP01/HeroFight/issues
 [license-shield]: https://img.shields.io/github/license/DH-FE-GRP01/HeroFight.svg?style=flat-square
-[license-url]: https://github.com/DH-FE-GRP01/HeroFight/blob/master/LICENSE.txt
+[license-url]: https://github.com/DH-FE-GRP01/HeroFight/blob/main/LICENSE.txt
 [product-screenshot]: /images/screenshot.png
