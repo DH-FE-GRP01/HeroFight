@@ -133,6 +133,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
+Diana Mendes - [@dmsmendez](https://br.linkedin.com/in/diana-mendes-57b30839) - dms.dianamendes@gmail.com
 Diego de A. Senott - [@senott](https://twitter.com/senott) - senott@yahoo.com
 
 Project Link: [https://github.com/DH-FE-GRP01/HeroFight](https://github.com/DH-FE-GRP01/HeroFight)

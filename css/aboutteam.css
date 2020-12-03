@@ -40,6 +40,7 @@
 .team_description {
     display: flex;
     justify-content: center;
+    font-size: 13.5px;
 }
 
 @keyframes icon3d {
