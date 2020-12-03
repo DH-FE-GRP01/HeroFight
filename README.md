@@ -33,7 +33,7 @@
     <a href="https://github.com/DH-FE-GRP01/HeroFight"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://netflix-signin-clone.netlify.app/">View Demo</a>
+    <a href="https://hero-fight.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/DH-FE-GRP01/HeroFight/issues">Report Bug</a>
     ·
@@ -63,7 +63,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://netflix-signin-clone.netlify.app/)
+[![Hero Fight Screen Shot][product-screenshot]](https://hero-fight.netlify.app/)
 
 Simple HTML, CSS and Javascript site built trying to copy the NETFLIX sign in page without loooking at the code (at least not too much).
 
@@ -157,6 +157,4 @@ Project Link: [https://github.com/DH-FE-GRP01/HeroFight](https://github.com/DH-F
 [issues-url]: https://github.com/DH-FE-GRP01/HeroFight/issues
 [license-shield]: https://img.shields.io/github/license/DH-FE-GRP01/HeroFight.svg?style=flat-square
 [license-url]: https://github.com/DH-FE-GRP01/HeroFight/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/senott
-[product-screenshot]: assets/images/Screenshot.png
+[product-screenshot]: /images/screenshot.png
