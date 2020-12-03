@@ -28,7 +28,9 @@ formulario.addEventListener("submit", function(evento){
         errorList.innerHTML += "<li> O campo <b>mensagem</b> precisa ser preenchido </li>";
 
     }
-
+    if (errorList.querySelectorAll("li").length > 0){
+        error.hidden="";
+    }
 })
 
 
