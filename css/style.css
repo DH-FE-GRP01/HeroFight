@@ -1425,3 +1425,19 @@ textarea.form-control {
 #info-oponent-hero {
 	display: none;
 }
+
+section{
+	font-family: monospace;
+	font-size: 20px;
+	justify-content: center;
+	margin: 10px;	
+}
+
+h2{
+	font-family: fantasy;
+}
+
+h3{
+	color: red;
+}
+
