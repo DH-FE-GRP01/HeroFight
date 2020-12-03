@@ -23,6 +23,9 @@ async function getHeroImage(heroId) {
 }
 
 window.onload = async function () {
+	const loader = document.getElementById('loader-5');
+	loader.style.display = 'fixed';
+
 	for (let i = 0; i < 9; i++) {
 		let heroId = randomCharacterId();
 
@@ -37,4 +40,6 @@ window.onload = async function () {
 			</a>
 		`;
 	}
+
+	loader.style.display = 'none';
 }
