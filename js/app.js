@@ -31,7 +31,10 @@ formulario.addEventListener("submit", function(evento){
 
     if (errorList.querySelectorAll("li").length > 0){
         error.hidden="";
+    }else{
+        alert('Obrigado, ' + nome.value + ' . Os seus dados foram encaminhados, retornaremos o mais breve!');   
     }
+})
 
 
-});
+    
