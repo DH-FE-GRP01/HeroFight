@@ -15,31 +15,71 @@ const myInit = {
 
 async function getHeroImage(heroId) {
 	let url = `https://superheroapi.com/api.php/${accessToken}/${heroId}/image`;
-
+	
 	let myRequest = new Request(url, myInit);
 
 	let response = await fetch(myRequest)
+	
 	return await response.json();
 }
 
 window.onload = async function () {
 	const loader = document.getElementById('loader-5');
-	loader.style.display = 'fixed';
+	let contador = 0;
 
-	for (let i = 0; i < 9; i++) {
-		let heroId = randomCharacterId();
+	addHero = async function (lim) {
+		loader.style.display = '';
+		for (let i = contador; i < lim; i++) {
+			let heroId = randomCharacterId();
 
-		const imgBoxes = document.querySelectorAll('.box');
+			const imgBoxes = document.querySelectorAll('.box');
 
-		let heroImage = await getHeroImage(heroId);
-
-		imgBoxes[i].innerHTML = `
+			let heroImage = await getHeroImage(heroId);
+			if(heroImage.status == 404){
+				alert("aaaaa");
+			}
+			imgBoxes[i].innerHTML = `
 			<a href=${heroImage.url}>
 				<img src='${heroImage.url}' alt='${heroImage.name}' title='${heroImage.name}' />
 				<span>${heroImage.name}</span>
 			</a>
 		`;
-	}
+		}
 
-	loader.style.display = 'none';
+		setTimeout(carr, 800);
+
+		function carr(){ loader.style.display = 'none';}
+	}
+	
+	addHero(9);
+
+
+
+	let viewMore = document.querySelector(".view_more");
+	let divMore = document.querySelector(".gallery-images-container");
+	contador = 9;
+
+	viewMore.addEventListener("click", async function () {
+		divMore.innerHTML += `
+			<div class="box img-gallery">
+				<a href="">
+					<img alt="" src="">
+				</a>
+			</div>
+			<div class="box img-gallery">
+				<a href="">
+					<img alt="" src="">
+				</a>
+			</div>
+			<div class="box img-gallery">
+				<a href="">
+					<img alt="" src="">
+				</a>
+			</div>
+		`;
+		
+		addHero(contador+3);
+
+		contador += 3;
+	});
 }
