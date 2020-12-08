@@ -1311,6 +1311,11 @@ textarea.form-control {
 	display: grid;
 }
 
+.card-container-back {
+	perspective: 700px;
+	display: grid;
+}
+
 .card-flip, .card-container {
 	transition: all 0.7s ease;
 	transform-style: preserve-3d;
@@ -1331,18 +1336,23 @@ textarea.form-control {
 }
 
 .card-front {
-	grid-area: frontAndBack;
+    grid-area: frontAndBack;
 }
 
 .card-back {
 	grid-area: frontAndBack;
 	transform: rotateY(-180deg);
-	-webkit-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
 }
 
 .card-container:hover .card-flip {
 	transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
+}
+
+.card-container-back:hover .card-flip {
+	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
 }
 
 #contact-error {
