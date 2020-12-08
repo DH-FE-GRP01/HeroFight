@@ -1,6 +1,9 @@
 // BUSCA O ELEMENTO QUE CONTEM O CARD DO OPONENTE
 const contentCardOponentHero = document.getElementById("content-card-oponent-hero");
 
+// BUSCA O ELEMENTO QUE CONTEM O CARD DO USUARIO
+const contentCardUserHero = document.getElementById("content-card-user-hero");
+
 // FUNCAO RESPONSAVEL POR RECEBER A TELA DO DISPOSITIVO
 // E VERIFICAR SE A TELA EH COMPATIVEL COM O TAMANHO
 // REQUISITADO NA VARIAVEL
@@ -8,10 +11,18 @@ function changeClass(screenWidth) {
     if (screenWidth.matches) {
         contentCardOponentHero.classList.add("card-container-back");
         contentCardOponentHero.classList.remove("card-container");
+        
+        contentCardUserHero.classList.add("card-container-back");
+        contentCardUserHero.classList.remove("card-container");
+
+
     }
     else {
         contentCardOponentHero.classList.add("card-container");
         contentCardOponentHero.classList.remove("card-container-back");
+        
+        contentCardUserHero.classList.add("card-container");
+        contentCardUserHero.classList.remove("card-container-back");
     }
 }
 
@@ -29,4 +40,9 @@ sizeWindow.addListener(changeClass);
 contentCardOponentHero.addEventListener("click", () => {
     contentCardOponentHero.classList.toggle("card-container-back");
     contentCardOponentHero.classList.toggle("card-container");
+});
+
+contentCardUserHero.addEventListener("click", () => {
+    contentCardUserHero.classList.toggle("card-container-back");
+    contentCardUserHero.classList.toggle("card-container");
 });
