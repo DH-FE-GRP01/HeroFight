@@ -19,6 +19,12 @@ async function getHeroData(heroName) {
 	let result = await fetch(myRequest)
 	let data = await result.json();
 
+	function valida(value){
+		return value.powerstats.intelligence != "null" &&  value.powerstats.strength != "null" && value.powerstats.speed != "null" && value.powerstats.durability != "null" && value.powerstats.power != "null" && value.powerstats.combat != "null";
+	}
+
+	data.results = data.results.filter(valida);
+
 	if (data.response === "success") {
 		return data.results;
 	}
@@ -66,7 +72,7 @@ function setHeroCard(heroId) {
 	fighter.innerHTML = `
 		<div class="card-front" id="user-box">
 			<div class="box-icon">
-				<img src=${hero[0].image.url} alt=${hero[0].name} class="img-responsive img-max-height">
+				<img src=${hero[0].image.url} onerror="this.src='./images/default-hero.jpg'" alt=${hero[0].name} class="img-responsive img-max-height">
 			</div>
 			<div class="info float-container">
 				<div class="col-sm-12 london-title">
@@ -101,39 +107,91 @@ function setHeroCard(heroId) {
 	let averagePowerOpn = 0;
 
 	async function getHero() {
-		const result = await getHeroOponent(Math.round(Math.random() * 731));
 
-		if (result !== undefined) {
-			let intOpn = 0;
-			let strOpn = 0;
-			let speedOpn = 0;
-			let durabilityOpn = 0;
-			let powerOpn = 0;
-			let combatOpn = 0;
+		let result = '';
 
-			if (result.powerstats.intelligence !== "null") {
-				intOpn = Number(result.powerstats.intelligence);
-				strOpn = Number(result.powerstats.strength);
-				speedOpn = Number(result.powerstats.speed);
-				durabilityOpn = Number(result.powerstats.durability);
-				powerOpn = Number(result.powerstats.power);
-				combatOpn = Number(result.powerstats.combat);
+		do{
+			result = await getHeroOponent(Math.round(Math.random() * 731));
+		}while (result.powerstats.intelligence == "null" || result.powerstats.strength == "null" || result.powerstats.speed == "null" || result.powerstats.durability == "null" || result.powerstats.power == "null" || result.powerstats.combat == "null");
 
-				averagePowerOpn = Math.round((intOpn + strOpn + speedOpn + durabilityOpn + powerOpn + combatOpn) / 6);
-			}
+		intOpn = Number(result.powerstats.intelligence);
+		strOpn = Number(result.powerstats.strength);
+		speedOpn = Number(result.powerstats.speed);
+		durabilityOpn = Number(result.powerstats.durability);
+		powerOpn = Number(result.powerstats.power);
+		combatOpn = Number(result.powerstats.combat);
 
-			oponentHeroImage.setAttribute("src", result.image.url);
-			oponentHeroNickname.innerText = result.name;
-			oponentHeroFullName.innerText = result.biography["full-name"] ? result.biography["full-name"] : result.name;
-			oponentHeroFullPower.innerText = averagePowerOpn;
+		averagePowerOpn = Math.round((intOpn + strOpn + speedOpn + durabilityOpn + powerOpn + combatOpn) / 6);
 
-			oponentHeroInt.innerText = "Inteligência " + intOpn;
-			oponentHeroStr.innerText = "Força " + strOpn;
-			oponentHeroSpeed.innerText = "Velocidade " + speedOpn;
-			oponentHeroResistence.innerText = "Resistência " + durabilityOpn;
-			oponentHeroPower.innerText = "Poder " + powerOpn;
-			oponentHeroCombat.innerText = "Combate " + combatOpn;
-		}
+		let oponent = document.getElementById('oponent');
+
+		oponent.classList.add('card-flip');
+		oponent.innerHTML = `
+		<div class="card-front" id="oponent-box">
+			<div class="box-icon">
+				<img src=${result.image.url} alt=${result.name} class="img-responsive img-max-height" id="oponent-hero-img">
+			</div>
+			<div class="info float-container">
+				<div class="col-sm-12 paris-title">
+					<h3 class="text-uppercase" id="oponent-hero-nickname">${result.name}</h3>
+					<h4 class="text-uppercase" id="oponent-hero-full-name">${result.biography['full-name']}</h4>
+				</div>
+				<div class="col-sm-12 location2-main">
+					<div class="pull-left location2">
+						<i class="fa fa-hand-rock-o fa-3x"></i><span id="oponent-hero-full-power">${averagePowerOpn}</span>
+					</div>
+					<div class="pull-right user-icons">
+						<a href="#"><i class="fa fa-repeat fa-3x"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-back">
+			<div class="info float-container">
+				<div class="pull-left">
+					<h3 class="text-uppercase">Poderes</h3>
+					<h4 class="text-uppercase" id="oponent-hero-int">Inteligência ${intOpn}</h4>
+					<h4 class="text-uppercase" id="oponent-hero-str">Força ${strOpn}</h4>
+					<h4 class="text-uppercase" id="oponent-hero-speed">Velocidade ${speedOpn}</h4>
+					<h4 class="text-uppercase" id="oponent-hero-resistence">Resistência ${durabilityOpn}</h4>
+					<h4 class="text-uppercase" id="oponent-hero-power">Poder ${powerOpn}</h4>
+					<h4 class="text-uppercase" id="oponent-hero-combat">Combate ${combatOpn}</h4>
+				</div>
+			</div>
+		</div>
+		`;
+		
+		// if (result !== undefined) {
+		// 	let intOpn = 0;
+		// 	let strOpn = 0;
+		// 	let speedOpn = 0;
+		// 	let durabilityOpn = 0;
+		// 	let powerOpn = 0;
+		// 	let combatOpn = 0;
+
+		// 	if (result.powerstats.intelligence !== "null") {
+		// 		intOpn = Number(result.powerstats.intelligence);
+		// 		strOpn = Number(result.powerstats.strength);
+		// 		speedOpn = Number(result.powerstats.speed);
+		// 		durabilityOpn = Number(result.powerstats.durability);
+		// 		powerOpn = Number(result.powerstats.power);
+		// 		combatOpn = Number(result.powerstats.combat);
+
+		// 		averagePowerOpn = Math.round((intOpn + strOpn + speedOpn + durabilityOpn + powerOpn + combatOpn) / 6);
+		// 	}
+
+		// 	oponentHeroImage.setAttribute("src", result.image.url);
+		// 	oponentHeroNickname.innerText = result.name;
+		// 	oponentHeroFullName.innerText = result.biography["full-name"] ? result.biography["full-name"] : result.name;
+		// 	oponentHeroFullPower.innerText = averagePowerOpn;
+
+		// 	oponentHeroInt.innerText = "Inteligência " + intOpn;
+		// 	oponentHeroStr.innerText = "Força " + strOpn;
+		// 	oponentHeroSpeed.innerText = "Velocidade " + speedOpn;
+		// 	oponentHeroResistence.innerText = "Resistência " + durabilityOpn;
+		// 	oponentHeroPower.innerText = "Poder " + powerOpn;
+		// 	oponentHeroCombat.innerText = "Combate " + combatOpn;
+		//}
 	}
 
 	getHero();
@@ -192,7 +250,7 @@ userHero.addEventListener('change', async function () {
 					cardsChooseHero.innerHTML = `
 						<div class='minicard-heroes'>
 							<a href="#" onclick="setHeroCard('${element.id}'); return false;">
-								<img src='${element.image.url}' alt='${element.name}' title='${element.name}' />
+								<img src='${element.image.url}' onerror="this.src='./images/default-hero.jpg'" alt='${element.name}' title='${element.name}' />
 								<span>${element.name}</span>
 								<span>(${element.biography["full-name"]})</span>
 							</a>
@@ -202,7 +260,7 @@ userHero.addEventListener('change', async function () {
 					cardsChooseHero.innerHTML += `
 					<div class='minicard-heroes'>
 						<a href="#" onclick="setHeroCard('${element.id}'); return false;">
-							<img src='${element.image.url}' alt='${element.name}' title='${element.name}' />
+							<img src='${element.image.url}' onerror="this.src='./images/default-hero.jpg'" alt='${element.name}' title='${element.name}' />
 							<span>${element.name}</span>
 							<span>(${element.biography["full-name"]})</span>
 						</a>
