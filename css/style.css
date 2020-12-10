@@ -1409,6 +1409,10 @@ textarea.form-control {
 	height: 100%;
 }
 
+#content-card-oponent-hero {
+	display: none;
+}
+
 /* .col-lg-6 {
 	width: 100%;
 } */

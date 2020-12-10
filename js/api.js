@@ -24,6 +24,18 @@ async function getHeroData(heroName) {
 	}
 };
 
+async function getHeroOponent(heroId) {
+	let url = `https://superheroapi.com/api.php/868642223878564/${heroId}`;
+	let myRequest = new Request(url, myInit);
+
+	let result = await fetch(myRequest)
+	let data = await result.json();
+
+	if (data.response === "success") {
+		return data;
+	}
+}
+
 function setHeroCard(heroId) {
 	const hero = results.filter(hero => hero.id === heroId);
 
@@ -36,12 +48,23 @@ function setHeroCard(heroId) {
 
 	const averagePower = Math.round((intelligence + strength + speed + durability + power + combat) / 6);
 
+	const oponentHeroImage = document.getElementById("oponent-hero-img");
+	const oponentHeroNickname = document.getElementById("oponent-hero-nickname");
+	const oponentHeroFullName = document.getElementById("oponent-hero-full-name");
+	const oponentHeroFullPower = document.getElementById("oponent-hero-full-power");
+	const oponentHeroInt = document.getElementById("oponent-hero-int");
+	const oponentHeroStr = document.getElementById("oponent-hero-str");
+	const oponentHeroSpeed = document.getElementById("oponent-hero-speed");
+	const oponentHeroResistence = document.getElementById("oponent-hero-resistence");
+	const oponentHeroPower = document.getElementById("oponent-hero-power");
+	const oponentHeroCombat = document.getElementById("oponent-hero-combat");
+
 	let fighter = document.getElementById('fighter');
 
 	fighter.classList.add('card-flip');
 
 	fighter.innerHTML = `
-		<div class="card-front">
+		<div class="card-front" id="user-box">
 			<div class="box-icon">
 				<img src=${hero[0].image.url} alt=${hero[0].name} class="img-responsive img-max-height">
 			</div>
@@ -74,6 +97,84 @@ function setHeroCard(heroId) {
 			</div>
 		</div>
 	`;
+
+	let averagePowerOpn = 0;
+
+	async function getHero() {
+		const result = await getHeroOponent(Math.round(Math.random() * 731));
+
+		if (result !== undefined) {
+			let intOpn = 0;
+			let strOpn = 0;
+			let speedOpn = 0;
+			let durabilityOpn = 0;
+			let powerOpn = 0;
+			let combatOpn = 0;
+
+			if (result.powerstats.intelligence !== "null") {
+				intOpn = Number(result.powerstats.intelligence);
+				strOpn = Number(result.powerstats.strength);
+				speedOpn = Number(result.powerstats.speed);
+				durabilityOpn = Number(result.powerstats.durability);
+				powerOpn = Number(result.powerstats.power);
+				combatOpn = Number(result.powerstats.combat);
+
+				averagePowerOpn = Math.round((intOpn + strOpn + speedOpn + durabilityOpn + powerOpn + combatOpn) / 6);
+			}
+
+			oponentHeroImage.setAttribute("src", result.image.url);
+			oponentHeroNickname.innerText = result.name;
+			oponentHeroFullName.innerText = result.biography["full-name"] ? result.biography["full-name"] : result.name;
+			oponentHeroFullPower.innerText = averagePowerOpn;
+
+			oponentHeroInt.innerText = "Inteligência " + intOpn;
+			oponentHeroStr.innerText = "Força " + strOpn;
+			oponentHeroSpeed.innerText = "Velocidade " + speedOpn;
+			oponentHeroResistence.innerText = "Resistência " + durabilityOpn;
+			oponentHeroPower.innerText = "Poder " + powerOpn;
+			oponentHeroCombat.innerText = "Combate " + combatOpn;
+		}
+	}
+
+	getHero();
+
+	setTimeout(() => {
+		document.getElementById("content-card-oponent-hero").style.display = "block";
+	}, 2000);
+
+	setTimeout(() => {
+		if (averagePower > averagePowerOpn) {
+			document.getElementById("user-box").style.backgroundColor = "rgba(107, 181, 34, 1)";
+			document.getElementById("user-box").style.color = "#fff";
+			document.querySelector(".location i").style.color = "#fff";
+			document.querySelector(".london-title h3").style.color = "#fff";
+			document.querySelector(".london-title").style.borderLeft = "2px solid #fff";
+
+			document.getElementById("oponent-box").style.backgroundColor = "rgba(193, 61, 18, 1)";
+			document.getElementById("oponent-box").style.color = "#fff";
+			document.querySelector(".paris i").style.color = "#fff";
+			document.querySelector(".paris-title h3").style.color = "#fff";
+			document.querySelector(".paris-title").style.borderLeft = "2px solid #fff";
+			alert("VOCÊ VENCEU");
+		}
+		else if (averagePower == averagePowerOpn) {
+			alert("EMPATOU");
+		}
+		else {
+			document.getElementById("user-box").style.backgroundColor = "rgba(193, 61, 18, 1)";
+			document.getElementById("user-box").style.color = "#fff";
+			document.querySelector(".location i").style.color = "#fff";
+			document.querySelector(".london-title h3").style.color = "#fff";
+			document.querySelector(".london-title").style.borderLeft = "2px solid #fff";
+
+			document.getElementById("oponent-box").style.backgroundColor = "rgba(107, 181, 34, 1)";
+			document.getElementById("oponent-box").style.color = "#fff";
+			document.querySelector(".paris i").style.color = "#fff";
+			document.querySelector(".paris-title h3").style.color = "#fff";
+			document.querySelector(".paris-title").style.borderLeft = "2px solid #fff";
+			alert("INIMIGO VENCEU");
+		}
+	}, 3000);
 }
 
 userHero.addEventListener('change', async function () {
@@ -115,6 +216,6 @@ userHero.addEventListener('change', async function () {
 				Nenhum herói encontrado para sua busca.
 				<img src="/images/card-img-default.jpg" />
 			`;
-		} 
+		}
 	}
 });
