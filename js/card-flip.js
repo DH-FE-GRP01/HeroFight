@@ -1,5 +1,5 @@
 // BUSCA O ELEMENTO QUE CONTEM O CARD DO OPONENTE
-const contentCardOponentHero = document.getElementById("content-card-oponent-hero");
+const contentCardOponentHero = document.getElementById("content-card-opponent-hero");
 
 // BUSCA O ELEMENTO QUE CONTEM O CARD DO USUARIO
 const contentCardUserHero = document.getElementById("content-card-user-hero");
