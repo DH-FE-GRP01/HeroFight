@@ -162,6 +162,8 @@ async function setOpponentCard() {
         opponentHeroResistence.innerText = "RESISTÊNCIA: " + durability;
         opponentHeroPower.innerText = "PODER: " + power;
         opponentHeroCombat.innerText = "COMBATE: " + combat;
+
+        setTimeout(checkWinner, 2000);
     }
 }
 
@@ -244,6 +246,8 @@ function backDefault() {
 
     document.getElementById("menu-buttons-opponent").style.display = "none";
     document.getElementById("opponent").style.display = "none";
+
+    document.getElementById("change-hero-user").style.display = "none";
 
     const userBox = document.getElementById("user-box");
     const opponentBox = document.getElementById("opponent-box");
