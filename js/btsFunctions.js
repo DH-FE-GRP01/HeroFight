@@ -1,8 +1,9 @@
 const changeHeroUser = document.getElementById("change-hero-user");
 const selectRandomHeroUser = document.getElementById("select-random-hero-user");
-const blockFlipUser = document.getElementById("block-flip-user");
 
-const blockFlipOpponent = document.getElementById("block-flip-opponent");
+// blockFlipUser = document.getElementById("block-flip-user");
+
+// blockFlipOpponent = document.getElementById("block-flip-opponent");
 
 changeHeroUser.addEventListener("click", () => {
     backDefault();
@@ -35,8 +36,6 @@ selectRandomHeroUser.addEventListener("click", async () => {
 
         const averagePower = Math.round((intelligence + strength + speed + durability + power + combat) / 6);
 
-        document.getElementById('fighter').classList.add('card-flip');
-
         let cardsChooseHero = document.getElementById("cards-choose-hero");
         cardsChooseHero.innerHTML = `
             <img src="images/card-img-default.jpg" alt=""
@@ -66,26 +65,24 @@ selectRandomHeroUser.addEventListener("click", async () => {
         userHeroFullName.innerText = hero.biography["full-name"] ? hero.biography["full-name"] : hero.name;
         userHeroFullPower.innerText = averagePower;
 
-        userHeroInt.innerText = "INTELIGÊNCIA: " + intelligence;
-        userHeroStr.innerText = "FORÇA: " + strength;
-        userHeroSpeed.innerText = "VELOCIDADE: " + speed;
-        userHeroResistence.innerText = "RESISTÊNCIA: " + durability;
-        userHeroPower.innerText = "PODER: " + power;
-        userHeroCombat.innerText = "COMBATE: " + combat;
+        userHeroInt.innerText = intelligence;
+        userHeroStr.innerText = strength;
+        userHeroSpeed.innerText = speed;
+        userHeroResistence.innerText = durability;
+        userHeroPower.innerText = power;
+        userHeroCombat.innerText = combat;
 
         setOpponentCard();
 
         if (changeHeroUser.style.display == "none" || changeHeroUser.style.display == "") {
             changeHeroUser.style.display = "block";
-        }
+		}
+		
+		document.getElementById("block-flip-user").removeAttribute("disabled");
     }
 });
 
 blockFlipUser.addEventListener("click", () => {
-    const fighter = document.getElementById('content-card-user-hero');
-
-    fighter.classList.toggle('card-container');
-
     if (blockFlipUser.innerText == "Bloquear giro") {
         blockFlipUser.innerText = "Desbloquear giro";
     }
@@ -95,10 +92,6 @@ blockFlipUser.addEventListener("click", () => {
 });
 
 blockFlipOpponent.addEventListener("click", () => {
-    const opponent = document.getElementById('content-card-opponent-hero');
-
-    opponent.classList.toggle('card-container');
-
     if (blockFlipOpponent.innerText == "Bloquear giro") {
         blockFlipOpponent.innerText = "Desbloquear giro";
     }

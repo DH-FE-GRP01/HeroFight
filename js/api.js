@@ -61,8 +61,6 @@ function setHeroCard(heroId) {
 
     const averagePower = Math.round((intelligence + strength + speed + durability + power + combat) / 6);
 
-    document.getElementById('fighter').classList.add('card-flip');
-
     let cardsChooseHero = document.getElementById("cards-choose-hero");
     cardsChooseHero.innerHTML = `
         <img src="images/card-img-default.jpg" alt=""
@@ -93,18 +91,20 @@ function setHeroCard(heroId) {
     userHeroFullName.innerText = hero.biography["full-name"] ? hero.biography["full-name"] : hero.name;
     userHeroFullPower.innerText = averagePower;
 
-    userHeroInt.innerText = "INTELIGÊNCIA: " + intelligence;
-    userHeroStr.innerText = "FORÇA: " + strength;
-    userHeroSpeed.innerText = "VELOCIDADE: " + speed;
-    userHeroResistence.innerText = "RESISTÊNCIA: " + durability;
-    userHeroPower.innerText = "PODER: " + power;
-    userHeroCombat.innerText = "COMBATE: " + combat;
+    userHeroInt.innerText = intelligence;
+    userHeroStr.innerText = strength;
+    userHeroSpeed.innerText = speed;
+    userHeroResistence.innerText = durability;
+    userHeroPower.innerText = power;
+    userHeroCombat.innerText = combat;
 
     setOpponentCard();
 
     if (changeHeroUser.style.display == "none" || changeHeroUser.style.display == "") {
         changeHeroUser.style.display = "block";
-    }
+	}
+	
+	document.getElementById("block-flip-user").removeAttribute("disabled");
 }
 
 // FUNCAO PARA SETAR O CARD DO OPONENTE
@@ -152,16 +152,18 @@ async function setOpponentCard() {
         averagePowerOpn = Math.round((intelligence + strength + speed + durability + power + combat) / 6);
 
         opponentHeroImage.setAttribute("src", heroOpponent.image.url);
+        opponentHeroImage.setAttribute("alt", heroOpponent.name);
+        opponentHeroImage.setAttribute("title", heroOpponent.name);
         opponentHeroNickname.innerText = heroOpponent.name;
         opponentHeroFullName.innerText = heroOpponent.biography["full-name"] ? heroOpponent.biography["full-name"] : heroOpponent.name;
         opponentHeroFullPower.innerText = averagePowerOpn;
 
-        opponentHeroInt.innerText = "INTELIGÊNCIA: " + intelligence;
-        opponentHeroStr.innerText = "FORÇA: " + strength;
-        opponentHeroSpeed.innerText = "VELOCIDADE:  " + speed;
-        opponentHeroResistence.innerText = "RESISTÊNCIA: " + durability;
-        opponentHeroPower.innerText = "PODER: " + power;
-        opponentHeroCombat.innerText = "COMBATE: " + combat;
+        opponentHeroInt.innerText = intelligence;
+        opponentHeroStr.innerText = strength;
+        opponentHeroSpeed.innerText = speed;
+        opponentHeroResistence.innerText = durability;
+        opponentHeroPower.innerText = power;
+        opponentHeroCombat.innerText = combat;
 
         setTimeout(checkWinner, 2000);
     }
@@ -232,8 +234,6 @@ document.getElementById("play-again").addEventListener("click", () => {
 });
 
 function backDefault() {
-    document.getElementById("fighter").classList.remove("card-flip");
-
     let cardsChooseHero = document.getElementById("cards-choose-hero");
     cardsChooseHero.innerHTML = `
         <img src="images/card-img-default.jpg" alt=""
@@ -247,7 +247,11 @@ function backDefault() {
     document.getElementById("menu-buttons-opponent").style.display = "none";
     document.getElementById("opponent").style.display = "none";
 
-    document.getElementById("change-hero-user").style.display = "none";
+	document.getElementById("change-hero-user").style.display = "none";
+	
+	document.getElementById("block-flip-user").setAttribute("disabled", false);
+	document.getElementById("block-flip-user").innerText = "Desbloquear giro";
+	document.getElementById("block-flip-opponent").innerText = "Desbloquear giro";
 
     const userBox = document.getElementById("user-box");
     const opponentBox = document.getElementById("opponent-box");
